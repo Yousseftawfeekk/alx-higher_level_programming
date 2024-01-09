@@ -1,22 +1,22 @@
-0-add_integer.py
 #!/usr/bin/python3
-""" Defining matrix division function"""
+"""Define matrix division function."""
 
 
 def matrix_divided(matrix, div):
     """
-    Divide all elements of a matrix
+    Divide all elements of a matrix.
 
-    Args:
-        matrix (list):  list of lists of int or float
-        div (int/float) the div
-    Returns
-        new matrix representing the result of the division
+    Raises:
+        TypeError: If the matrix contains non-numbers.
+        TypeError: If the matrix contains rows of different sizes.
+        TypeError: If div is not an int or float.
+        ZeroDivisionError: If div is 0.
+    Returns: new matrix representing the result of the division.
     """
     if (not isinstance(matrix, list) or matrix == [] or
             not all(isinstance(row, list) for row in matrix) or
             not all((isinstance(ele, int) or isinstance(ele, float))
-                    for el in [num for row in matrix for num in row])):
+                    for ele in [num for row in matrix for num in row])):
         raise TypeError("matrix must be a matrix (list of lists) of "
                         "integers/floats")
 
@@ -30,4 +30,3 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
-
