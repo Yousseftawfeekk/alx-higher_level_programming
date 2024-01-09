@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-''' module to sort mylist'''
+''' module is_same metod class '''
 
-class MyList(list):
-    ''' my list class '''
-
-    def print_sorted(self):
-	''' method for printing sorted list'''
-        print(sorted(self))
-
+def is_same_class(obj, a_class):
+    '''Determines if an object is exactly an instance of class'''
+    return type(obj) == a_class
 	
